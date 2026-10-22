@@ -69,7 +69,7 @@ func newParallelReader(readers []io.ReaderAt, e Erasure, offset, totalLength int
 		offset:        (offset / e.blockSize) * e.ShardSize(),
 		shardSize:     e.ShardSize(),
 		shardFileSize: e.ShardFileSize(totalLength),
-		buf:           make([][]byte, len(readers)),
+		buf:           bufs,
 		readerToBuf:   r2b,
 		stashBuffer:   b,
 	}
